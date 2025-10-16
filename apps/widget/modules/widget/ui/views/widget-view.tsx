@@ -1,7 +1,7 @@
 "use client";
 
 //import { useAtomValue } from "jotai";
-//import { WidgetAuthScreen } from "@/modules/widget/ui/screens/widget-auth-screen";
+import { WidgetAuthScreen } from "@/modules/widget/ui/screens/widget-auth-screen";
 //import { screenAtom } from "@/modules/widget/atoms/widget-atoms";
 //import { WidgetErrorScreen } from "@/modules/widget/ui/screens/widget-error-screen";
 //import { WidgetLoadingScreen } from "@/modules/widget/ui/screens/widget-loading-screen";
@@ -22,13 +22,9 @@ export const WidgetView = ({ organizationId }: Props) => {
   return (
     // TODO: Confirm whether or not "min-h-screen" and "min-w-screen" is needed
     <main className="min-h-screen min-w-screen flex h-full w-full flex-col overflow-hidden rounded-xl border bg-muted">
-      <WidgetHeader >
-        <p>Hi there, how can I help you today?</p>
-      </WidgetHeader>
-      <div className="flex-1">
-        widget view: {organizationId}
-      </div>
-      <WidgetFooter />
+      <WidgetAuthScreen />
+        
+      {/*<WidgetFooter />*/}
     </main>
   );
 };

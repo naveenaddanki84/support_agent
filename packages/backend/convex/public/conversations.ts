@@ -1,8 +1,8 @@
 import { mutation, query } from "../_generated/server";
 import { components } from "../_generated/api";
 import { ConvexError, v } from "convex/values";
-//import { supportAgent } from "../system/ai/agents/supportAgent";
-//import { MessageDoc, saveMessage } from "@convex-dev/agent";
+import { supportAgent } from "../system/ai/agents/supportAgent";
+import { MessageDoc, saveMessage } from "@convex-dev/agent";
 import { paginationOptsValidator } from "convex/server";
 
 export const getOne = query({
@@ -59,19 +59,20 @@ export const create = mutation({
       });
     }
 
-    // const { threadId } = await supportAgent.createThread(ctx, {
-    //   userId: args.organizationId,
-    // });
+    const { threadId } = await supportAgent.createThread(ctx, {
+      userId: args.organizationId,
+    });
 
-    // await saveMessage(ctx, components.agent, {
-    //   threadId,
-    //   message: {
-    //     role: "assistant",
-    //     // TODO: Later modify to widget settings' initial message
-    //     content: "Hello, how can I help you today?",
-    //   },
-    // });
-    const threadId = "123";
+    await saveMessage(ctx, components.agent, {
+      threadId,
+      message: {
+        role: "assistant",
+        // TODO: Later modify to widget settings' initial message
+        content: "Hello, how can I help you today?",
+      },
+    });
+
+    //const threadId = "123";
     const conversationId = await ctx.db.insert("conversations", {
       contactSessionId: session._id,
       status: "unresolved",

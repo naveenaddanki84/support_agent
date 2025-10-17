@@ -22,16 +22,14 @@ const formSchema = z.object({
   email: z.string().email("Invalid email address"),
 });
 
-const organizationId = "123";
-
 export const WidgetAuthScreen = () => {
-  //const setScreen = useSetAtom(screenAtom);
+  const setScreen = useSetAtom(screenAtom);
 
   const organizationId = useAtomValue(organizationIdAtom);
   const setContactSessionId = useSetAtom(
-   contactSessionIdAtomFamily(organizationId || "")
+    contactSessionIdAtomFamily(organizationId || "")
   );
-  
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -69,7 +67,7 @@ export const WidgetAuthScreen = () => {
     });
 
     setContactSessionId(contactSessionId);
-    //setScreen("selection");
+    setScreen("selection");
   };
 
   return (

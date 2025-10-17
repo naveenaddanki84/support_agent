@@ -8,12 +8,16 @@
  * @module
  */
 
+import type * as private_conversations from "../private/conversations.js";
+import type * as private_messages from "../private/messages.js";
 import type * as public_contactSessions from "../public/contactSessions.js";
 import type * as public_conversations from "../public/conversations.js";
 import type * as public_messages from "../public/messages.js";
 import type * as public_organizations from "../public/organizations.js";
 import type * as system_ai_agents_supportAgent from "../system/ai/agents/supportAgent.js";
-import type * as system_constants from "../system/constants.js";
+import type * as system_ai_constants from "../system/ai/constants.js";
+import type * as system_ai_tools_escalateConversation from "../system/ai/tools/escalateConversation.js";
+import type * as system_ai_tools_resolveConversation from "../system/ai/tools/resolveConversation.js";
 import type * as system_contactSessions from "../system/contactSessions.js";
 import type * as system_conversations from "../system/conversations.js";
 import type * as users from "../users.js";
@@ -33,12 +37,16 @@ import type {
  * ```
  */
 declare const fullApi: ApiFromModules<{
+  "private/conversations": typeof private_conversations;
+  "private/messages": typeof private_messages;
   "public/contactSessions": typeof public_contactSessions;
   "public/conversations": typeof public_conversations;
   "public/messages": typeof public_messages;
   "public/organizations": typeof public_organizations;
   "system/ai/agents/supportAgent": typeof system_ai_agents_supportAgent;
-  "system/constants": typeof system_constants;
+  "system/ai/constants": typeof system_ai_constants;
+  "system/ai/tools/escalateConversation": typeof system_ai_tools_escalateConversation;
+  "system/ai/tools/resolveConversation": typeof system_ai_tools_resolveConversation;
   "system/contactSessions": typeof system_contactSessions;
   "system/conversations": typeof system_conversations;
   users: typeof users;
